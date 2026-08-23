@@ -1,0 +1,29 @@
+apiVersion: fluxa/v1
+kind: Plugin
+metadata:
+  name: plugin-channel-webchat
+  version: 0.1.0
+  author: jmjp
+  license: MIT
+  repository: https://github.com/jmjp/plugin-channel-webchat
+spec:
+  runtime: grpc
+  entrypoint: ./bin/plugin-channel-webchat
+
+  capabilities:
+    - id: channel.webchat
+      displayName: "Webchat (canal HTTP de teste)"
+      config:
+        - key: http_port
+          type: int
+          default: "9100"
+          required: false
+        - key: grpc_socket
+          type: string
+          default: "/tmp/fluxa/plugin-channel-webchat.sock"
+          required: false
+
+  permissions:
+    - scope: channel.inbound
+    - scope: channel.outbound
+  config: []
