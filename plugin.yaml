@@ -24,6 +24,6 @@ spec:
           required: false
 
   permissions:
-    - scope: channel.inbound
-    - scope: channel.outbound
+    - channel.inbound
+    - channel.outbound
   config: []
